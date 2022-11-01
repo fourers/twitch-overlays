@@ -48,7 +48,7 @@ export default function HeartsOverlay4() {
                     </Grid>
                 </Box>
                 <Box>
-                    <Grid container>
+                    <Grid container justifyContent="right">
                         {
                             indexArray.map((index) => {
                                 const sectionIndex = `b${index}`;
@@ -64,7 +64,7 @@ export default function HeartsOverlay4() {
             </Stack>
             <Stack direction="row" width="100%">
                 <Box sx={{ flexGrow: 1 }}>
-                    <Stack direction="row">
+                    <Grid container alignItems="end">
                         {
                             indexArray.map((index) => {
                                 const sectionIndex = `c${index}`;
@@ -75,10 +75,10 @@ export default function HeartsOverlay4() {
                                 );
                             })
                         }
-                    </Stack>
+                    </Grid>
                 </Box>
                 <Box>
-                    <Stack direction="row">
+                    <Grid container justifyContent="right" alignItems="end">
                         {
                             indexArray.map((index) => {
                                 const sectionIndex = `d${index}`;
@@ -89,7 +89,7 @@ export default function HeartsOverlay4() {
                                 );
                             })
                         }
-                    </Stack>
+                    </Grid>
                 </Box>
             </Stack>
         </Stack>
