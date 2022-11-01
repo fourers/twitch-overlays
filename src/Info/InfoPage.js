@@ -26,9 +26,12 @@ export default function InfoPage() {
                         </Typography>
                         <Grid container justifyContent="center" width="100%">
                             <Stack direction="column">
-                                <Typography variant="heading4" align="center" sx={{ pb: 1 }}>Overlays</Typography>
+                                <Typography variant="heading4" align="center" sx={{ pb: 1 }}>Available Overlays</Typography>
                                 <Stack direction="row">
-                                    <Button href="/hearts">Hearts</Button>
+                                    <Button href="#/wl-poll">W-L Poll</Button>
+                                    <Button href="#/hearts">Hearts</Button>
+                                    <Button href="#/hearts4">Hearts4</Button>
+                                    <Button href="#/submissions">Submissions</Button>
                                 </Stack>
                             </Stack>
                         </Grid>
