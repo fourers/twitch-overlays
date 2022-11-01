@@ -24,6 +24,9 @@ export default function InfoPage() {
                         <Typography variant="body2" sx={{ pb: 2 }}>
                             To use these overlays in OBS, add the url as a Browser Source.
                         </Typography>
+                        <Typography variant="body2" sx={{ pb: 2 }}>
+                            Source code can be found on <Link href="https://github.com/fourers/twitch-overlays">GitHub</Link>.
+                        </Typography>
                         <Grid container justifyContent="center" width="100%">
                             <Stack direction="column">
                                 <Typography variant="heading4" align="center" sx={{ pb: 1 }}>Available Overlays</Typography>
