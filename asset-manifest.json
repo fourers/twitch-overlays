@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/twitch-overlays/static/css/main.5a781b63.css",
-    "main.js": "/twitch-overlays/static/js/main.111e95cc.js",
+    "main.js": "/twitch-overlays/static/js/main.a3736001.js",
     "static/js/787.69a6314a.chunk.js": "/twitch-overlays/static/js/787.69a6314a.chunk.js",
     "static/media/roboto-all-500-normal.woff": "/twitch-overlays/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
     "static/media/roboto-all-700-normal.woff": "/twitch-overlays/static/media/roboto-all-700-normal.a457fde362a540fcadff.woff",
@@ -37,11 +37,11 @@
     "static/media/roboto-greek-ext-700-normal.woff2": "/twitch-overlays/static/media/roboto-greek-ext-700-normal.bd9854c751441ccc1a70.woff2",
     "index.html": "/twitch-overlays/index.html",
     "main.5a781b63.css.map": "/twitch-overlays/static/css/main.5a781b63.css.map",
-    "main.111e95cc.js.map": "/twitch-overlays/static/js/main.111e95cc.js.map",
+    "main.a3736001.js.map": "/twitch-overlays/static/js/main.a3736001.js.map",
     "787.69a6314a.chunk.js.map": "/twitch-overlays/static/js/787.69a6314a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5a781b63.css",
-    "static/js/main.111e95cc.js"
+    "static/js/main.a3736001.js"
   ]
 }
