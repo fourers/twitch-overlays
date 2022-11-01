@@ -1,6 +1,9 @@
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { Container } from '@mui/system';
 
@@ -16,11 +19,19 @@ export default function InfoPage() {
                 <Card>
                     <CardContent>
                         <Typography variant="heading3" component="div" sx={{ pb: 2 }}>
-                            Developed by @Fourers
+                            Developed by <Link href="https://www.twitch.tv/fourers">Fourers</Link>
                         </Typography>
-                        <Typography variant="body2">
-                            To use this overlay in OBS, add the url as a Browser Source
+                        <Typography variant="body2" sx={{ pb: 2 }}>
+                            To use these overlays in OBS, add the url as a Browser Source.
                         </Typography>
+                        <Grid container justifyContent="center" width="100%">
+                            <Stack direction="column">
+                                <Typography variant="heading4" align="center" sx={{ pb: 1 }}>Overlays</Typography>
+                                <Stack direction="row">
+                                    <Button href="/hearts">Hearts</Button>
+                                </Stack>
+                            </Stack>
+                        </Grid>
                     </CardContent>
                 </Card>
             </Container>
