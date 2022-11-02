@@ -1,11 +1,11 @@
 import { Chat, ChatEvents, Commands } from 'twitch-js'
 
-const relevantLetters = ["W", "L"]
+export const relevantPhrases = ["W", "L"]
 
 function getFirstValidLetter(message) {
-    const messageParts = message.toUpperCase().split(" ");
+    const messageParts = message.split(" ");
     const firstPart = messageParts[0];
-    if (relevantLetters.includes(firstPart)) {
+    if (relevantPhrases.includes(firstPart)) {
         return firstPart;
     }
     return null;

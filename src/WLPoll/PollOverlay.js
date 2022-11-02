@@ -8,7 +8,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import { createTwitchClient, closeTwitchClient } from './TwitchClient';
+import { createTwitchClient, closeTwitchClient, relevantPhrases } from './TwitchClient';
 
 const defaultChannel = "KaiCenat";
 
@@ -33,6 +33,7 @@ export default function PollOverlay() {
 
     useEffect(() => {
         setSearchParams({"channel": channel});
+        setAnswers({});
     }, [channel]);
 
     useEffect(() => {
@@ -40,13 +41,13 @@ export default function PollOverlay() {
         return () => {
             closeTwitchClient(chatClient);
         };
-    }, []);
+    }, [channel]);
 
     const clearAnswers = () => setAnswers({});
 
     const calculatedAnswers = calculateAnswers(answers);
-    const aCount = calculatedAnswers.W || 0;
-    const bCount = calculatedAnswers.L || 0;
+    const aCount = calculatedAnswers[relevantPhrases[0]] || 0;
+    const bCount = calculatedAnswers[relevantPhrases[1]] || 0;
     const total = aCount + bCount;
     const aPercentage = Math.round((aCount / total * 100) * 100) / 100 || 0;
     const bPercentage = (total > 0) ? Math.round((100 - aPercentage) * 100) / 100 : 0;
@@ -74,7 +75,7 @@ export default function PollOverlay() {
                                     divider={<Divider orientation="vertical" flexItem />}
                                     gap={1}
                                 >
-                                    <Typography variant="subtitle1">W</Typography>
+                                    <Typography variant="subtitle1">{relevantPhrases[0]}</Typography>
                                     <Typography variant="subtitle1">{`${aCount}/${total}`}</Typography>
                                     <Typography variant="subtitle1">{`${aPercentage.toFixed(2)}%`}</Typography>
                                 </Stack>
@@ -90,7 +91,7 @@ export default function PollOverlay() {
                                 >
                                     <Typography variant="subtitle1">{`${bPercentage.toFixed(2)}%`}</Typography>
                                     <Typography variant="subtitle1">{`${bCount}/${total}`}</Typography>
-                                    <Typography variant="subtitle1">L</Typography>
+                                    <Typography variant="subtitle1">{relevantPhrases[1]}</Typography>
                                 </Stack>
                             </Grid>
                         </Grid>
