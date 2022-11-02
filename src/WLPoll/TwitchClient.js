@@ -4,10 +4,9 @@ const relevantLetters = ["W", "L"]
 
 function getFirstValidLetter(message) {
     const messageParts = message.toUpperCase().split(" ");
-    for (let part in messageParts) {
-        if (relevantLetters.includes(part)) {
-            return part;
-        }
+    const firstPart = messageParts[0];
+    if (relevantLetters.includes(firstPart)) {
+        return firstPart;
     }
     return null;
 }

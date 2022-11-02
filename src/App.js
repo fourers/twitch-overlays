@@ -20,16 +20,16 @@ function App() {
     <ThemeProvider theme={darkTheme}>
         <CssBaseline enableColorScheme/>
         <Routes>
-            <Route path="/hearts/*" element={
+            <Route path="/hearts" element={
                 <HeartsOverlay />
             }/>
-            <Route path="/hearts4/*" element={
+            <Route path="/hearts4" element={
                 <HeartsOverlay4 />
             }/>
-            <Route path="/submissions/*" element={
+            <Route path="/submissions" element={
                 <SubmissionsOverlay />
             }/>
-            <Route path="/wl-poll/*" element={
+            <Route path="/wl-poll" element={
                 <PollOverlay />
             }/>
             <Route path="*" element={

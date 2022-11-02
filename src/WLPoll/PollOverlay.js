@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -25,17 +25,21 @@ function calculateAnswers(answers) {
 }
 
 export default function PollOverlay() {
-    const { "*": channelName } = useParams();
-    const channel = channelName || defaultChannel;
+    const [searchParams, setSearchParams] = useSearchParams();
+    const channel = searchParams.get("channel") || defaultChannel;
 
     const [chatClient, setChatClient] = useState(null);
     const [answers, setAnswers] = useState({});
 
     useEffect(() => {
+        setSearchParams({"channel": channel});
+    }, [channel]);
+
+    useEffect(() => {
         createTwitchClient(channel, setChatClient, setAnswers);
         return () => {
             closeTwitchClient(chatClient);
-        }
+        };
     }, []);
 
     const clearAnswers = () => setAnswers({});
