@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from "react-router-dom";
 
 import Icon from '@mdi/react';
@@ -36,6 +36,7 @@ export function getIndexArray(count) {
 
 export default function HeartsOverlay() {
     const [searchParams] = useSearchParams();
+
     const numberOfHearts = getNumberOfHearts(searchParams);
     const heartArray = getIndexArray(numberOfHearts);
     const initialHeartState = heartArray.reduce((prev, curr) => {
@@ -43,6 +44,11 @@ export default function HeartsOverlay() {
     }, {});
 
     const [heartState, setHeartState] = useState(initialHeartState);
+
+    useEffect(() => {
+        setHeartState(initialHeartState);
+    }, [numberOfHearts]);
+
     const handleClick = (event) => {
         const eventIndex = event.nativeEvent.path.reduce((prev, curr) => prev !== null ? prev : curr.id.length > 0 ? curr.id : null, null);
         if (eventIndex !== null) {
@@ -59,15 +65,20 @@ export default function HeartsOverlay() {
             height="100vh"
             sx={{ p: 3 }}
         >
-            {
-                heartArray.map((heartIndex) => {
-                    return (
-                        <Box id={heartIndex} key={heartIndex} onClick={handleClick}>
-                            {getHeartIcon(heartState[heartIndex])}
-                        </Box>
-                    );
-                })
-            }
+            <Grid
+                container
+                justifyContent="center"
+            >
+                {
+                    heartArray.map((heartIndex) => {
+                        return (
+                            <Box id={heartIndex} key={heartIndex} onClick={handleClick}>
+                                {getHeartIcon(heartState[heartIndex])}
+                            </Box>
+                        );
+                    })
+                }
+            </Grid>
         </Grid>
     );
 }
