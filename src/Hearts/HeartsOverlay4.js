@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from "react-router-dom";
 
 import Box from '@mui/material/Box';
@@ -16,6 +16,10 @@ export default function HeartsOverlay4() {
     }, {});
 
     const [heartState, setHeartState] = useState(initialHeartState);
+    useEffect(() => {
+        setHeartState(initialHeartState);
+    }, [numberOfHearts]);
+
     const handleClick = (event) => {
         const eventIndex = event.nativeEvent.path.reduce((prev, curr) => prev !== null ? prev : curr.id.length > 0 ? curr.id : null, null);
         if (eventIndex !== null) {

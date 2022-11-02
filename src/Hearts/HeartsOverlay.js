@@ -44,7 +44,6 @@ export default function HeartsOverlay() {
     }, {});
 
     const [heartState, setHeartState] = useState(initialHeartState);
-
     useEffect(() => {
         setHeartState(initialHeartState);
     }, [numberOfHearts]);
